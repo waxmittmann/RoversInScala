@@ -75,9 +75,7 @@ case object Move extends Command {
 }
 
 class CommandParser() {
-  def parse(input: String): RoversInput = {
-
-  }
+  def parse(input: String): RoversInput = ???
 }
 
 //type Position = (Int, Int)
@@ -90,14 +88,24 @@ object Rovers {
   def empty(plateauDimensions: PlateauDimensions) = Rovers(plateauDimensions, List.empty)
 }
 
+sealed trait RoverError
+
+
+case class RoversAccumulator(state: Either[RoverError, (Rovers, List[Rovers])]) {
+  def execute(command: Seq[Command]): RoversAccumulator = {
+    state.fold((_) => this, cur => RoversAccumulator({
+      cur._1.execute(command).fold[Either[RoverError, (Rovers, List[Rovers])]](
+        Left(_), result => Right((result, result :: cur._2)))
+    }))
+  }
+}
+
 case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientation]) {
 //  def execute(command: Seq[Command]): Option[(Rovers, String)] = {
 //
 //  }
 
-  def execute(command: Seq[Command]): Either[(Rovers, List[String])] = {
-
-  }
+  def execute(command: Seq[Command]): Either[RoverError, Rovers] = ???
 
   def add(roverPositionOrientation: RoverPositionOrientation): Rovers = {
     Rovers(plateau, roverPositionOrientation :: rovers)

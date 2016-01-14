@@ -5192,3 +5192,807 @@ Total time: 0 s, completed 14/01/2016 6:27:55 PM
 > server-post-command-error-handler
 > server-post-command-cleanup
 > server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@2e17e3f7, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources
+Read from stdout: Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 483b7461, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:123: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:123: expected class or object definition
+Read from stdout: type PlateauDimensions = (Int, Int)
+type PlateauDimensions = (Int, Int)
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:140: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:140: expected class or object definition
+Read from stdout: type RoverStateWithOutput = (Rovers, List[String])
+type RoverStateWithOutput = (Rovers, List[String])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:142: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:142: expected class or object definition
+Read from stdout: type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:144: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:144: expected class or object definition
+Read from stdout: type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+Read from stdout: ^
+^
+Read from stdout: four errors found
+four errors found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 6:28:33 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@2a5879d7, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources
+Read from stdout: Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 182a9577, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:121: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:121: expected class or object definition
+Read from stdout: type PlateauDimensions = (Int, Int)
+type PlateauDimensions = (Int, Int)
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:138: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:138: expected class or object definition
+Read from stdout: type RoverStateWithOutput = (Rovers, List[String])
+type RoverStateWithOutput = (Rovers, List[String])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:140: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:140: expected class or object definition
+Read from stdout: type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:142: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:142: expected class or object definition
+Read from stdout: type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+Read from stdout: ^
+^
+Read from stdout: four errors found
+four errors found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 6:45:48 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@5a750601, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources
+Read from stdout: Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 5f25f5b7, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:119: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:119: expected class or object definition
+Read from stdout: type PlateauDimensions = (Int, Int)
+type PlateauDimensions = (Int, Int)
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:136: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:136: expected class or object definition
+Read from stdout: type RoverStateWithOutput = (Rovers, List[String])
+type RoverStateWithOutput = (Rovers, List[String])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:138: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:138: expected class or object definition
+Read from stdout: type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:140: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:140: expected class or object definition
+Read from stdout: type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+Read from stdout: ^
+^
+Read from stdout: four errors found
+four errors found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 6:47:34 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@768099c9, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources
+Read from stdout: Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 3407aad4, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+Read from stdout: type PlateauDimensions = (Int, Int)
+type PlateauDimensions = (Int, Int)
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+Read from stdout: type RoverStateWithOutput = (Rovers, List[String])
+type RoverStateWithOutput = (Rovers, List[String])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+Read from stdout: type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+Read from stdout: type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+Read from stdout: ^
+^
+Read from stdout: four errors found
+four errors found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 6:52:36 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@6d707ba3, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources
+Read from stdout: Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 11f75ef2, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+Read from stdout: type PlateauDimensions = (Int, Int)
+type PlateauDimensions = (Int, Int)
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+Read from stdout: type RoverStateWithOutput = (Rovers, List[String])
+type RoverStateWithOutput = (Rovers, List[String])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+Read from stdout: type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+Read from stdout: type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+Read from stdout: ^
+^
+Read from stdout: four errors found
+four errors found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 6:54:13 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@5ee4da8a, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources
+Read from stdout: Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 33ea4fed, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+Read from stdout: type PlateauDimensions = (Int, Int)
+type PlateauDimensions = (Int, Int)
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+Read from stdout: type RoverStateWithOutput = (Rovers, List[String])
+type RoverStateWithOutput = (Rovers, List[String])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+Read from stdout: type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+Read from stdout: type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+Read from stdout: ^
+^
+Read from stdout: four errors found
+four errors found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 6:54:39 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@5d5b003b, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources
+Read from stdout: Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 738e945e, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+Read from stdout: type PlateauDimensions = (Int, Int)
+type PlateauDimensions = (Int, Int)
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+Read from stdout: type RoverStateWithOutput = (Rovers, List[String])
+type RoverStateWithOutput = (Rovers, List[String])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+Read from stdout: type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+Read from stdout: type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+Read from stdout: ^
+^
+Read from stdout: four errors found
+four errors found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 6:54:48 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@68f231f9, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources
+Read from stdout: Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 3a938054, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+Read from stdout: type PlateauDimensions = (Int, Int)
+type PlateauDimensions = (Int, Int)
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+Read from stdout: type RoverStateWithOutput = (Rovers, List[String])
+type RoverStateWithOutput = (Rovers, List[String])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+Read from stdout: type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+Read from stdout: type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+Read from stdout: ^
+^
+Read from stdout: four errors found
+four errors found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 6:55:13 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@2ab17579, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources
+Read from stdout: Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 34fdd093, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+Read from stdout: type PlateauDimensions = (Int, Int)
+type PlateauDimensions = (Int, Int)
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+Read from stdout: type RoverStateWithOutput = (Rovers, List[String])
+type RoverStateWithOutput = (Rovers, List[String])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+Read from stdout: type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+Read from stdout: type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+Read from stdout: ^
+^
+Read from stdout: four errors found
+four errors found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 6:55:24 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@463988ba, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources
+Read from stdout: Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 3152ef45, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+Read from stdout: type PlateauDimensions = (Int, Int)
+type PlateauDimensions = (Int, Int)
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+Read from stdout: type RoverStateWithOutput = (Rovers, List[String])
+type RoverStateWithOutput = (Rovers, List[String])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+Read from stdout: type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+Read from stdout: type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+Read from stdout: ^
+^
+Read from stdout: four errors found
+four errors found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 6:55:35 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@151684bd, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources
+Read from stdout: Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler ac357fd, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+Read from stdout: type PlateauDimensions = (Int, Int)
+type PlateauDimensions = (Int, Int)
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+Read from stdout: type RoverStateWithOutput = (Rovers, List[String])
+type RoverStateWithOutput = (Rovers, List[String])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+Read from stdout: type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+Read from stdout: type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+Read from stdout: ^
+^
+Read from stdout: four errors found
+four errors found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 6:55:43 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@7c7e0fa, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala)
+
+Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources
+Read from stdout: Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 1 Scala source to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 1186448b, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:132: expected class or object definition
+Read from stdout: type PlateauDimensions = (Int, Int)
+type PlateauDimensions = (Int, Int)
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:149: expected class or object definition
+Read from stdout: type RoverStateWithOutput = (Rovers, List[String])
+type RoverStateWithOutput = (Rovers, List[String])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:151: expected class or object definition
+Read from stdout: type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
+Read from stdout: ^
+^
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/Hello.scala:153: expected class or object definition
+Read from stdout: type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
+Read from stdout: ^
+^
+Read from stdout: four errors found
+four errors found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 6:55:51 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
