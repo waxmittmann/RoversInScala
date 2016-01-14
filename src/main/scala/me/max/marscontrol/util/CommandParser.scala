@@ -17,7 +17,7 @@ object CommandParser {
   }
 
   case class PlateauDefinition(input: List[String]) extends ExpectedLine {
-    override def process(): Either[String, RoverDefinitionOrEnd] = {
+    override def process(): Either[String, ExpectedLine] = {
     if (input.length < 3) {
       return Left("Not enough input left to finish")
     }
@@ -25,8 +25,8 @@ object CommandParser {
     try {
         val parts = input.head.split(" ")
         val (width, height) = (parts(0).toInt, parts(1).toInt)
-        Right(RoverDefinitionOrEnd(input.tail, (width, height),
-          List[(RoverPositionOrientation, List[Command])]()))
+        RoverDefinitionOrEnd(input.tail, (width, height),
+          List[(RoverPositionOrientation, List[Command])]()).process()
       } catch {
         case _ => Left(s"Failed to parse line '${input.head}'")
       }
@@ -49,11 +49,18 @@ object CommandParser {
       try {
         val parts = input.head.split(" ")
         val (width, height, orientationString) = (parts(0).toInt, parts(1).toInt, parts(2))
+//        Orientation.fromString(orientationString)
+//            .fold[Either[String, ExpectedLine]](
+//              Left(s"Failed to parse line '${input.head}'"))(
+//              (orientation:Orientation) => Right(RoverCommands(input.tail, plateauDimensions,
+//                RoverPositionOrientation(Position(width, height), orientation), roversSoFar)))
+
         Orientation.fromString(orientationString)
             .fold[Either[String, ExpectedLine]](
               Left(s"Failed to parse line '${input.head}'"))(
-              (orientation:Orientation) => Right(RoverCommands(input.tail, plateauDimensions,
-                RoverPositionOrientation(Position(width, height), orientation), roversSoFar)))
+              (orientation:Orientation) => RoverCommands(input.tail, plateauDimensions,
+                RoverPositionOrientation(Position(width, height), orientation), roversSoFar).process())
+
       } catch {
         case _ => Left(s"Failed to parse line '${input.head}'")
       }
@@ -77,8 +84,8 @@ object CommandParser {
 
       val result: Either[String, ExpectedLine] = listOfCommandsO
           .fold[Either[String, List[Command]]](Left(s"Failed to parse line '${input.head}'"))(Right(_)).right
-        .map(commands =>
-          RoverDefinitionOrEnd(input.tail, plateauDimensions, (currentRoverPositionOrientation, commands) :: roversSoFar)
+        .flatMap(commands =>
+          RoverDefinitionOrEnd(input.tail, plateauDimensions, (currentRoverPositionOrientation, commands) :: roversSoFar).process()
         )
       result
     }
