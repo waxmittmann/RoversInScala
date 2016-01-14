@@ -1,7 +1,6 @@
 package me.max.rover.entity
 
 import Orientation.{East, North, South, West}
-import RoverPositionOrientation
 
 sealed trait Command {
   def apply(rover: RoverPositionOrientation): RoverPositionOrientation

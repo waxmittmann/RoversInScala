@@ -1,6 +1,7 @@
 package me.max.rover.entity
 
 import me.max.rover.entity.Orientation.Orientation
+import me.max.rover.entity.Rovers.PlateauDimensions
 
 object Rovers {
   type PlateauDimensions = (Int, Int)

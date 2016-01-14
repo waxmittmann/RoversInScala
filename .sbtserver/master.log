@@ -11289,3 +11289,191 @@ All initially invalidated sources: Set()
 Total time: 0 s, completed 14/01/2016 7:35:10 PM
 > server-post-command-cleanup
 > server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@4ad3bd2, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala)
+
+Recompiling all 6 sources: invalidated sources (6) exceeded 50.0% of all sources
+Read from stdout: Compiling 6 Scala sources to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 6 Scala sources to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 195fe0d, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala:6: '.' expected but ';' found.
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala:6: '.' expected but ';' found.
+Read from stdout: sealed trait Command {
+sealed trait Command {
+Read from stdout: ^
+^
+Read from stdout: one error found
+one error found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 7:35:20 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@2a930b63, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala)
+
+Recompiling all 6 sources: invalidated sources (6) exceeded 50.0% of all sources
+Read from stdout: Compiling 6 Scala sources to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 6 Scala sources to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 6b1784f8, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Read from stdout: /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala:6: '.' expected but ';' found.
+/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala:6: '.' expected but ';' found.
+Read from stdout: sealed trait Command {
+sealed trait Command {
+Read from stdout: ^
+^
+Read from stdout: one error found
+one error found
+Compilation failed (CompilerInterface)
+Read from stdout: (compile:compileIncremental) Compilation failed
+(compile:compileIncremental) Compilation failed
+Total time: 0 s, completed 14/01/2016 7:35:59 PM
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@46de792f, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala)
+Removed products: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Move.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Orientation.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/RoversAccumulator$$anonfun$execute$1.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/TurnLeft.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/TurnRight$$anonfun$apply$2.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Move$$anonfun$apply$3$$anonfun$apply$6.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Rovers.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/TurnLeft$$anonfun$apply$1.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Command.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Move$$anonfun$apply$3$$anonfun$apply$5.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Orientation$.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Rovers$.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/CommandParser.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/TurnRight$.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Position$.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Move$$anonfun$apply$3$$anonfun$apply$4.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Rovers$$anonfun$1.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/RoversAccumulator$.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/RoverError.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/RoverPositionOrientation$.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Move$$anonfun$apply$3$$anonfun$apply$7.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/TurnLeft$.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/RoverPositionOrientation.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/RoversAccumulator$$anonfun$execute$2.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Move$$anonfun$apply$3.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/RoverAndCommandShapesDontMatch$.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/TurnRight.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/RoverAndCommandShapesDontMatch.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/RoversAccumulator.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Move$.class, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes/me/max/rover/Position.class)
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala)
+
+Sources indirectly invalidated by:
+	product: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala)
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala, /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala)
+
+Recompiling all 6 sources: invalidated sources (6) exceeded 50.0% of all sources
+Read from stdout: Compiling 6 Scala sources to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Compiling 6 Scala sources to /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes...
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Getting compiler-interface from component compiler for Scala 2.11.7
+Other repositories:
+Default repositories:
+Running cached compiler 10179874, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Calling Scala compiler with arguments  (CompilerInterface):
+	-bootclasspath
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes:/Users/maxwittman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
+	-classpath
+	/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/target/scala-2.11/classes
+Scala compilation took 1.006552818 s
+Invalidating /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala...
+Invalidating (transitively) by inheritance from /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala...
+Initial set of included nodes: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala)
+Invalidated by transitive inheritance dependency: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala)
+The /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Position.scala source file has the following regular definitions changed:
+	notify, x, wait, copy$default$2, $asInstanceOf, productArity, equals, y, Position, asInstanceOf, synchronized, $isInstanceOf, canEqual, productPrefix, notifyAll, isInstanceOf, <init>, ==, clone, copy, toString, !=, getClass, copy$default$1, ne, increment, eq, productIterator, ##, finalize, productElement, hashCode.
+All member reference dependencies will be considered within this context.
+The following modified names cause invalidation of /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala: Set(Position, asInstanceOf, isInstanceOf, <init>, ==, toString, !=, ne, eq)
+The following modified names cause invalidation of /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala: Set(<init>)
+The following modified names cause invalidation of /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala: Set(<init>, ==, toString, increment)
+Invalidating /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala...
+Invalidating (transitively) by inheritance from /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala...
+Initial set of included nodes: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala)
+Invalidated by transitive inheritance dependency: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala)
+The /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala source file has the following regular definitions changed:
+	notify, wait, $asInstanceOf, equals, asInstanceOf, synchronized, $isInstanceOf, notifyAll, isInstanceOf, <init>, parse, ==, clone, CommandParser, toString, !=, getClass, ne, eq, ##, finalize, hashCode.
+All member reference dependencies will be considered within this context.
+Invalidating /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala...
+Invalidating (transitively) by inheritance from /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala...
+Initial set of included nodes: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala)
+Invalidated by transitive inheritance dependency: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala)
+The /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala source file has the following regular definitions changed:
+	notify, wait, $asInstanceOf, productArity, equals, TurnRight, asInstanceOf, Command, synchronized, $isInstanceOf, canEqual, productPrefix, notifyAll, readResolve, TurnLeft, isInstanceOf, Move, apply, ==, clone, toString, !=, getClass, ne, eq, productIterator, ##, finalize, productElement, hashCode.
+All member reference dependencies will be considered within this context.
+The following modified names cause invalidation of /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala: Set(asInstanceOf, Command, isInstanceOf, apply, ==, toString, !=, ne, eq)
+The following modified names cause invalidation of /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala: Set(TurnLeft, Move, apply)
+Invalidating /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala...
+Invalidating (transitively) by inheritance from /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala...
+Initial set of included nodes: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala)
+Invalidated by transitive inheritance dependency: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala)
+The /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala source file has the following regular definitions changed:
+	notify, unapply, plateau, changePlateau, RoversInput, execute, wait, copy$default$2, $asInstanceOf, empty, state, map, productArity, equals, mapOrientation, RoverAndCommandShapesDontMatch, Rovers, asInstanceOf, synchronized, $isInstanceOf, PlateauDimensions, canEqual, productPrefix, notifyAll, readResolve, isInstanceOf, <init>, RoverStateWithOutput, apply, rovers, ==, clone, orientation, RoverStateAndCommands, RoverError, copy, position, toString, !=, getClass, RoversAccumulator, copy$default$1, RoverPositionOrientation, ne, add, eq, productIterator, mapPosition, ##, finalize, productElement, hashCode.
+All member reference dependencies will be considered within this context.
+The following modified names cause invalidation of /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala: Set(execute, empty, state, Rovers, <init>, apply, RoversAccumulator, add)
+The following modified names cause invalidation of /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/util/CommandParser.scala: Set(RoversInput, Rovers, <init>)
+The following modified names cause invalidation of /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala: Set(map, mapOrientation, <init>, ==, orientation, toString, RoverPositionOrientation, mapPosition)
+Invalidating /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala...
+Invalidating (transitively) by inheritance from /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala...
+Initial set of included nodes: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala)
+Invalidated by transitive inheritance dependency: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala)
+The /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Orientation.scala source file has the following regular definitions changed:
+	notify, wait, South, $asInstanceOf, fromString, productArity, equals, East, asInstanceOf, synchronized, $isInstanceOf, canEqual, productPrefix, notifyAll, readResolve, isInstanceOf, Orientation, ==, clone, toString, !=, getClass, West, ne, eq, productIterator, ##, finalize, productElement, hashCode, North.
+All member reference dependencies will be considered within this context.
+The following modified names cause invalidation of /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Rover.scala: Set(asInstanceOf, isInstanceOf, Orientation, ==, toString, !=, ne, eq)
+The following modified names cause invalidation of /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala: Set(East, Orientation, North)
+The following modified names cause invalidation of /Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/entity/Command.scala: Set(South, East, Orientation, ==, toString, West, North)
+New invalidations:
+	Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala)
+Initial set of included nodes: Set(/Users/maxwittman/Workspaces/Scala/MarsRoversInScala/src/main/scala/me/max/rover/main/Main.scala)
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed 14/01/2016 7:36:08 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
