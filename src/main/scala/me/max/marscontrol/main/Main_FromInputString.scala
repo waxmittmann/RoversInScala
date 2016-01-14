@@ -3,7 +3,7 @@ package me.max.marscontrol.main
 import me.max.marscontrol.entity.rover.{RoverError, Rovers, RoversAccumulator}
 import me.max.marscontrol.util.CommandParser
 
-object Main_FromStdIn {
+object Main_FromInputString {
   def main(args: Array[String]): Unit = {
     def transformToResult(finalState: RoversAccumulator) = finalState.state.fold({
       case (error: RoverError, states: List[Rovers]) =>

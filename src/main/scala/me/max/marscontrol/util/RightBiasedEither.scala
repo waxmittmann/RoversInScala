@@ -1,6 +1,6 @@
 package me.max.marscontrol.util
 
-//See 'https://issues.scala-lang.org/browse/SI-5793'
+//Got this from 'https://issues.scala-lang.org/browse/SI-5793'
 //Not sure it's wise, but it makes the RoversAccumulator for-comprehension much prettier!
 object RightBiasedEither {
   implicit class RightBiasedEither[A, B](val e: Either[A, B]) extends AnyVal {

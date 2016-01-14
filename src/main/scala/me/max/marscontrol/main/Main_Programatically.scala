@@ -4,7 +4,7 @@ import me.max.marscontrol.entity._
 import me.max.marscontrol.entity.rover.{Rovers, RoversAccumulator, RoverPositionOrientation}
 import Orientation.{East, North}
 
-object Main_WithFixedIn {
+object Main_Programatically {
   def main(args: Array[String]): Unit = {
     val initialRovers = Rovers((5, 5), List())
       .add(RoverPositionOrientation(Position(1, 1), North))
