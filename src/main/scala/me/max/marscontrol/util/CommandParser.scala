@@ -6,91 +6,139 @@ import me.max.marscontrol.entity.{Noop, Position, Orientation, Command}
 import me.max.marscontrol.entity.Orientation.Orientation
 import me.max.marscontrol.entity.rover.{RoverPositionOrientation}
 import me.max.marscontrol.entity.rover.Rovers.{PlateauDimensions, RoversInput}
+import me.max.marscontrol.util.CommandParser.{CompletedState, ParserState}
 
 //Needs big refactors
 object CommandParser {
 
-  sealed trait ExpectedLine
+  sealed trait ExpectedLine {
+    def process(): Either[String, ExpectedLine]
+    def hasMore(): Boolean
+  }
 
-  case object PlateauDefinition extends ExpectedLine
+  case class PlateauDefinition(input: List[String]) extends ExpectedLine {
+    override def process(): Either[String, RoverDefinitionOrEnd] = {
+    if (input.length < 3) {
+      return Left("Not enough input left to finish")
+    }
 
-  case class RoverDefinitionOrEnd(plateauDimensions: PlateauDimensions,
-                                  roversSoFar: List[(RoverPositionOrientation, List[Command])]) extends ExpectedLine
+    try {
+        val parts = input.head.split(" ")
+        val (width, height) = (parts(0).toInt, parts(1).toInt)
+        Right(RoverDefinitionOrEnd(input.tail, (width, height),
+          List[(RoverPositionOrientation, List[Command])]()))
+      } catch {
+        case _ => Left(s"Failed to parse line '${input.head}'")
+      }
+    }
 
-  case class RoverCommands(plateauDimensions: PlateauDimensions,
-                           currentRoverPositionOrientation: RoverPositionOrientation,
-                           roversSoFar: List[(RoverPositionOrientation, List[Command])]) extends ExpectedLine
+    def hasMore() = {
+      input.length > 0
+    }
+  }
 
-  case class CompletedState(plateauDimensions: PlateauDimensions,
-                            roversSoFar: List[(RoverPositionOrientation, List[Command])]) extends ExpectedLine
-
-  case class ParserState(expectedLine: ExpectedLine, input: List[String]) {
-    def parse(): Either[String, ParserState] = {
-      def processPlateauDefinition() = {
-        try {
-          val parts = input.head.split(" ")
-          val (width, height) = (parts(0).toInt, parts(1).toInt)
-          Right(ParserState(RoverDefinitionOrEnd(
-            (width, height),
-            List[(RoverPositionOrientation, List[Command])]()), input.tail))
-        } catch {
-          case _ => Left(s"Failed to parse line '${input.head}'")
-        }
+  case class RoverDefinitionOrEnd(input: List[String], plateauDimensions: PlateauDimensions,
+                                  roversSoFar: List[(RoverPositionOrientation, List[Command])]) extends ExpectedLine {
+    override def process(): Either[String, ExpectedLine] = {
+      if (input.length == 0) {
+        return Right(this)
+      } else if (input.length < 2) {
+        return Left("Not enough input left to finish")
       }
 
-      def processRoverDefinition(dimensions: PlateauDimensions, roversSoFar: List[(RoverPositionOrientation, List[Command])]) = {
-        try {
-          val parts = input.head.split(" ")
-          val (width, height, orientationString) = (parts(0).toInt, parts(1).toInt, parts(2))
-          Orientation.fromString(orientationString)
-            .fold[Either[String, ParserState]](
+      try {
+        val parts = input.head.split(" ")
+        val (width, height, orientationString) = (parts(0).toInt, parts(1).toInt, parts(2))
+        Orientation.fromString(orientationString)
+            .fold[Either[String, ExpectedLine]](
               Left(s"Failed to parse line '${input.head}'"))(
-              (orientation:Orientation) => Right(ParserState(RoverCommands(dimensions,
-                RoverPositionOrientation(Position(width, height), orientation), roversSoFar), input.tail)))
-        } catch {
-          case _ => Left(s"Failed to parse line '${input.head}'")
-        }
+              (orientation:Orientation) => Right(RoverCommands(input.tail, plateauDimensions,
+                RoverPositionOrientation(Position(width, height), orientation), roversSoFar)))
+      } catch {
+        case _ => Left(s"Failed to parse line '${input.head}'")
       }
+    }
 
-      def processRoverCommands(dimensions: PlateauDimensions, currentPositionOrientation: RoverPositionOrientation,
-                               roversSoFar: List[(RoverPositionOrientation, List[Command])]) = {
-        val listOfCommandsO: Option[List[Command]] = input.head
+    def hasMore() = {
+      input.length > 0
+    }
+  }
+
+  case class RoverCommands(input: List[String], plateauDimensions: PlateauDimensions,
+                           currentRoverPositionOrientation: RoverPositionOrientation,
+                           roversSoFar: List[(RoverPositionOrientation, List[Command])]) extends ExpectedLine {
+    override def process(): Either[String, ExpectedLine] = {
+      val listOfCommandsO: Option[List[Command]] = input.head
               .foldRight[Option[List[Command]]](Some(List[Command]()))((curCommandChar, commands) => {
             commands.flatMap((soFar:List[Command]) => {
               Command.parse(curCommandChar).fold[Option[List[Command]]](None)((in) => Some(in :: soFar))
             })
           })
 
-        val result: Either[String, ParserState] = listOfCommandsO
+      val result: Either[String, ExpectedLine] = listOfCommandsO
           .fold[Either[String, List[Command]]](Left(s"Failed to parse line '${input.head}'"))(Right(_)).right
-          .map(commands => ParserState(RoverDefinitionOrEnd(dimensions, (currentPositionOrientation, commands) :: roversSoFar), input.tail))
-        result
-      }
+        .map(commands =>
+          RoverDefinitionOrEnd(input.tail, plateauDimensions, (currentRoverPositionOrientation, commands) :: roversSoFar)
+        )
+      result
+    }
 
-      if (input.length == 0) {
-        return expectedLine match {
-          case RoverDefinitionOrEnd(a, b) => Right(ParserState(CompletedState(a, b), List()))
-          case _ => Left(s"No more commands left, expected $expectedLine")
-        }
-      }
-
-      val result: Either[String, ParserState] = expectedLine match {
-        case PlateauDefinition => processPlateauDefinition()
-        case RoverDefinitionOrEnd(dimensions, roversSoFar)
-          => processRoverDefinition(dimensions, roversSoFar)
-        case RoverCommands(dimensions, currentPositionOrientation, roversSoFar)
-          => processRoverCommands(dimensions, currentPositionOrientation, roversSoFar)
-      }
-      result.right.flatMap(_.parse())
+    def hasMore() = {
+      input.length > 0
     }
   }
 
+  case class CompletedState(plateauDimensions: PlateauDimensions,
+                            roversSoFar: List[(RoverPositionOrientation, List[Command])]) extends ExpectedLine {
+    override def process() = ???
+
+    def hasMore() = {
+      false
+    }
+  }
+
+  case class ParserState(expectedLine: ExpectedLine) {
+    def parse(): Either[String, ExpectedLine] = {
+      println("Inside")
+      if (!expectedLine.hasMore()) {
+        println("No more")
+        return expectedLine match {
+          case RoverDefinitionOrEnd(_, a, b) => Right(CompletedState(a, b))
+          case _ => Left(s"No more commands left, expected $expectedLine")
+        }
+      }
+//
+//      println(input.length + " left")
+//      if (input.length == 0) {
+//        println("Returning")
+//        return expectedLine match {
+////          case (RoverDefinitionOrEnd(_) => Right(CompletedState(a, b))
+//          case RoverDefinitionOrEnd(_, a, b) => Right(CompletedState(a, b))
+//          case _ => Left(s"No more commands left, expected $expectedLine")
+//        }
+//      }
+
+      expectedLine.process()
+
+
+//      val result: Either[String, ParserState] = expectedLine match {
+//        case PlateauDefinition => processPlateauDefinition()
+//        case RoverDefinitionOrEnd(dimensions, roversSoFar)
+//          => processRoverDefinition(dimensions, roversSoFar)
+//        case RoverCommands(dimensions, currentPositionOrientation, roversSoFar)
+//          => processRoverCommands(dimensions, currentPositionOrientation, roversSoFar)
+//      }
+//      result.right.flatMap(_.parse())
+    }
+  }
+
+  //Need to get rid of ParserState
     def parse(input: String): Either[String, RoversInput] = {
       def parseInput(): Either[String, ((Int, Int), List[(RoverPositionOrientation, List[Command])])] = {
-        new ParserState(PlateauDefinition, input.split("\n").toList).parse match {
-          case Right(ParserState(CompletedState(dimensions, rovers), _)) => Right((dimensions, rovers))
-          case Right(ParserState(state, _)) => Left(s"Parser error, incorrect state: $state")
-          case Left(error) => Left(error)
+        PlateauDefinition(input.split("\n").toList).process() match {
+          case Right(RoverDefinitionOrEnd(_, dimensions, rovers)) => Right((dimensions, rovers))
+          case Right(state) => Left(s"Parser error, incorrect state: $state")
+          case Left(error: String) => Left(error)
         }
       }
 

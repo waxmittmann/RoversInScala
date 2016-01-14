@@ -5,6 +5,15 @@ import me.max.marscontrol.util.CommandParser
 
 object Main_FromStdIn {
   def main(args: Array[String]): Unit = {
+    def transformToResult(finalState: RoversAccumulator) = finalState.state.fold({
+      case (error: RoverError, states: List[Rovers]) =>
+        val previousStates = states.mkString("\n")
+        Left(s"Commands failed with error ${error}.\nStates leading up to the error:\n ${previousStates}")
+    }, {
+      case (finalState: Rovers, states: List[Rovers]) =>
+        Right(finalState.toString())
+    })
+
     val input =
       "5 5\n" +
       "1 2 N\n" +
@@ -17,18 +26,7 @@ object Main_FromStdIn {
       result <- {
         val initialRovers: Rovers = Rovers(roversInput._1, roversInput._2)
         val finalState = RoversAccumulator(initialRovers).executeAll(roversInput._3)
-
-        val result = finalState.state.fold({
-          case (error: RoverError, states: List[Rovers]) => {
-            val previousStates = states.mkString("\n")
-            Left(s"Commands failed with error ${error}.\nStates leading up to the error:\n ${previousStates}")
-          }
-        }, {
-          case (finalState: Rovers, states: List[Rovers]) => {
-            Right(finalState.toString())
-          }
-        })
-        result
+        transformToResult(finalState)
       }.right
     } yield result).merge
 
