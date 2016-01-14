@@ -8,9 +8,7 @@ object Rovers {
   type RoverStateWithOutput = (Rovers, List[String])
   type RoverStateAndCommands = (RoverPositionOrientation, List[Command])
   type RoversInput = (PlateauDimensions, List[RoverPositionOrientation], List[List[Command]])
-
-  def empty(plateauDimensions: PlateauDimensions) = Rovers(plateauDimensions, List.empty)
-  def apply(plateauDimensions: PlateauDimensions, rovers: List[RoverPositionOrientation]) = Rovers(plateauDimensions, rovers)
+//  type RoversInput = (PlateauDimensions, List[(RoverPositionOrientation, List[Command])])
 }
 
 case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientation]) {
@@ -23,6 +21,7 @@ case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientat
     }
 
     val result: Either[RoverError, Rovers] = if (rovers.size != command.size) {
+      println("Non-matching shapes for:\n" + rovers + "\n" + command)
       Left(RoverAndCommandShapesDontMatch)
     } else {
       Right[RoverError, Rovers](Rovers(plateau, runCommands))
@@ -32,6 +31,11 @@ case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientat
 
   def add(roverPositionOrientation: RoverPositionOrientation): Rovers = {
     Rovers(plateau, roverPositionOrientation :: rovers)
+  }
+
+  override def toString(): String = {
+    val plateauStr = s"Plateau: ${plateau._1} ${plateau._2}"
+    plateauStr + "\n" + rovers.map(rover => s"Position: ${rover.position}, Orientation: ${rover.orientation}")
   }
 }
 

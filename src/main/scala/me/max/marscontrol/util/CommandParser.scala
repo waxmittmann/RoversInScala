@@ -1,7 +1,10 @@
 package me.max.marscontrol.util
 
-import me.max.marscontrol.entity.Command
-import me.max.marscontrol.entity.rover.RoverPositionOrientation
+import java.io.Serializable
+
+import me.max.marscontrol.entity.{Noop, Position, Orientation, Command}
+import me.max.marscontrol.entity.Orientation.Orientation
+import me.max.marscontrol.entity.rover.{RoverPositionOrientation}
 import me.max.marscontrol.entity.rover.Rovers.{PlateauDimensions, RoversInput}
 
 /** *
@@ -35,6 +38,120 @@ Output and new coordinates:
 
   */
 
-class CommandParser() {
-  def parse(input: String): RoversInput = ???
+object CommandParser {
+
+  sealed trait ExpectedLine
+
+  case object PlateauDefinition extends ExpectedLine
+
+  case class RoverDefinitionOrEnd(plateauDimensions: PlateauDimensions,
+                                  roversSoFar: List[(RoverPositionOrientation, List[Command])]) extends ExpectedLine
+
+  case class RoverCommands(plateauDimensions: PlateauDimensions,
+                           currentRoverPositionOrientation: RoverPositionOrientation,
+                           roversSoFar: List[(RoverPositionOrientation, List[Command])]) extends ExpectedLine
+
+  case class CompletedState(plateauDimensions: PlateauDimensions,
+                            roversSoFar: List[(RoverPositionOrientation, List[Command])]) extends ExpectedLine
+
+  case class ParserState(expectedLine: ExpectedLine, input: List[String]) {
+    def parse(): Either[String, ParserState] = {
+      if (input.length == 0) {
+        return expectedLine match {
+          case RoverDefinitionOrEnd(a, b) => Right(ParserState(CompletedState(a, b), List()))
+          case _ => Left(s"No more commands left, expected $expectedLine")
+        }
+      }
+
+      val result: Either[String, ParserState] = expectedLine match {
+        case PlateauDefinition => {
+          try {
+            val parts = input.head.split(" ")
+            val (width, height) = (parts(0).toInt, parts(1).toInt)
+            Right(ParserState(RoverDefinitionOrEnd(
+              (width, height),
+              List[(RoverPositionOrientation, List[Command])]()), input.tail))
+          } catch {
+            case _ => Left(s"Failed to parse line '${input.head}'")
+          }
+
+          //val date = """(\d\d\d\d)-(\d\d)-(\d\d)""".r
+          //          val plateauRegex = """(\d+) (\d+)""".r
+          //          val result: Either[String, (Int, Int)] = plateauRegex.findAllIn(input.head) {
+          //            (width, height) => Right((Integer.parseInt(width), Integer.parseInt(height)))
+          //            _ => Left(s"Could not parse plateau from ${input.head}")
+          //          }
+        }
+        case RoverDefinitionOrEnd(dimensions, roversSoFar) => {
+          //          val plateauRegex = """(\d+) (\d+) (N|S|E|W)""".r
+          try {
+            val parts = input.head.split(" ")
+            val (width, height, orientationString) = (parts(0).toInt, parts(1).toInt, parts(2))
+            Orientation.fromString(orientationString)
+              .fold[Either[String, ParserState]](
+                Left(s"Failed to parse line '${input.head}'"))(
+                (orientation:Orientation) => Right(ParserState(RoverCommands(dimensions,
+                  RoverPositionOrientation(Position(width, height), orientation), roversSoFar), input.tail)))
+          } catch {
+            case _ => Left(s"Failed to parse line '${input.head}'")
+          }
+        }
+        case RoverCommands(dimensions, currentPositionOrientation, roversSoFar) => {
+          //val roverCommandsRegex = """(M|R|L)*""".r
+          val r: Option[List[Command]] = input.head
+              .foldRight[Option[List[Command]]](Some(List[Command]()))((curCommandChar, commands) => {
+            val r: Option[List[Command]] = commands.flatMap((soFar:List[Command]) => {
+              val pr:Option[Command] = Command.parse(curCommandChar)
+              val r = pr.fold[Option[List[Command]]](None)((in) => Some(in :: soFar))
+              r
+            })
+            r
+          })
+          val r2: Either[String, List[Command]] = r.fold[Either[String, List[Command]]](Left(s"Failed to parse line '${input.head}'"))(Right(_))
+          //          RoverDefinitionOrEnd(plateauDimensions,  r2
+          val r3: Either[String, ParserState] = r2.right
+            .map(commands => ParserState(RoverDefinitionOrEnd(dimensions, (currentPositionOrientation, commands) :: roversSoFar), input.tail))
+          r3
+        }
+      }
+      result.right.flatMap(_.parse())
+    }
+  }
+
+    def parse(input: String): Either[String, RoversInput] = {
+      def parseInput(): Either[String, ((Int, Int), List[(RoverPositionOrientation, List[Command])])] = {
+        new ParserState(PlateauDefinition, input.split("\n").toList).parse match {
+          case Right(ParserState(CompletedState(dimensions, rovers), _)) => Right((dimensions, rovers))
+          case Right(ParserState(state, _)) => Left(s"Parser error, incorrect state: $state")
+          case Left(error) => Left(error)
+        }
+      }
+
+      val parsedInput: Either[String, ((Int, Int), List[(RoverPositionOrientation, List[Command])])] = parseInput()
+      val r: Either[String, RoversInput] = parsedInput.right
+        .map((in: ((Int, Int), List[(RoverPositionOrientation, List[Command])])) => {
+          val rovers = in._2
+//          val longestList = rovers.map(_._2).max.length
+          //Todo: Replace with max
+          val longestList = rovers.map(_._2).foldLeft(0)((max, li) => {
+            if (li.length > max)
+              li.length
+            else
+              max
+          })
+          val (positionsOrientations, commands) = rovers.unzip
+          val paddedCommands: List[List[Command]] = commands.map(li => li.padTo(longestList, Noop))
+//          val r: ((Int, Int), List[RoverPositionOrientation], List[List[Command]]) = (in._1, positionsOrientations, paddedCommands)
+          val r: RoversInput = (in._1, positionsOrientations, paddedCommands)
+          r
+        })
+      r
+    }
+//
+//      var curState = ParserState(PlateauDefinition, input.split("\n").toList)
+//      while (true) {
+//        val result = parseH(curState)
+//
+//      }
+//    }
 }
