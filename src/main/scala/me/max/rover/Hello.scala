@@ -1,3 +1,7 @@
+package me.max.rover
+
+import me.max.rover.RoversTypes.{RoversInput, PlateauDimensions}
+
 /** *
 
 This plateau, which is curiously rectangular, must be navigated by the rovers so that their on board cameras can get a complete view of the surrounding terrain to send back to Earth.
@@ -12,7 +16,7 @@ The first line of input is the upper-right coordinates of the plateau, the lower
 The rest of the input is information pertaining to the rovers that have been deployed. Each rover has two lines of input. The first line gives the rover's position, and the second line is a series of instructions telling the rover how to explore the plateau.
 
 The position is made up of two integers and a letter separated by spaces, corresponding to the x and y co-ordinates and the rover's orientation.
-Each rover will be finished sequentially, which means that the second rover won't start to move until the first one has finished moving.
+Each rover will be finished Listuentially, which means that the second rover won't start to move until the first one has finished moving.
 Output:
 The output for each rover should be its final co-ordinates and heading.
 
@@ -28,6 +32,16 @@ Output and new coordinates:
 5 1 E
 
   */
+
+object RoversTypes {
+  type PlateauDimensions = (Int, Int)
+
+  type RoverStateWithOutput = (Rovers, List[String])
+
+  type RoverStateAndCommands = (RoverPositionOrientation, List[Command])
+
+  type RoversInput = (PlateauDimensions, List[RoverStateAndCommands])
+}
 
 sealed trait Orientation
 
@@ -78,9 +92,7 @@ class CommandParser() {
   def parse(input: String): RoversInput = ???
 }
 
-//type Position = (Int, Int)
 case class Position(x: Int, y: Int) {
-//  def map(f: Position => Position): Position = f(this)
   def increment(xi: Int, yi: Int) = Position(x + xi, y + yi)
 }
 
@@ -88,24 +100,39 @@ object Rovers {
   def empty(plateauDimensions: PlateauDimensions) = Rovers(plateauDimensions, List.empty)
 }
 
+object RoversAccumulator {
+  def apply(rovers: Rovers): RoversAccumulator = RoversAccumulator(Right(rovers, List()))
+}
+
 sealed trait RoverError
+case object RoverAndCommandShapesDontMatch extends RoverError
 
-
-case class RoversAccumulator(state: Either[RoverError, (Rovers, List[Rovers])]) {
-  def execute(command: Seq[Command]): RoversAccumulator = {
+case class RoversAccumulator(state: Either[(RoverError, List[Rovers]), (Rovers, List[Rovers])]) {
+  def execute(command: List[Command]): RoversAccumulator = {
     state.fold((_) => this, cur => RoversAccumulator({
-      cur._1.execute(command).fold[Either[RoverError, (Rovers, List[Rovers])]](
-        Left(_), result => Right((result, result :: cur._2)))
+      cur._1.execute(command).fold[Either[(RoverError, List[Rovers]), (Rovers, List[Rovers])]](
+        error => Left((error, cur._2)), result => Right((result, result :: cur._2)))
     }))
   }
 }
 
 case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientation]) {
-//  def execute(command: Seq[Command]): Option[(Rovers, String)] = {
-//
-//  }
+  def execute(command: List[Command]): Either[RoverError, Rovers] = {
+    def runCommands: List[RoverPositionOrientation] = {
+      val li: List[RoverPositionOrientation] = rovers.zip(command)
+        .foldLeft(List[RoverPositionOrientation]()) {
+          case (list, (rover, command)) => command(rover) :: list
+        }
+      li
+    }
 
-  def execute(command: Seq[Command]): Either[RoverError, Rovers] = ???
+    val result: Either[RoverError, Rovers] = if (rovers.size != command.size) {
+      Left(RoverAndCommandShapesDontMatch)
+    } else {
+      Right[RoverError, Rovers](Rovers(plateau, runCommands))
+    }
+    result
+  }
 
   def add(roverPositionOrientation: RoverPositionOrientation): Rovers = {
     Rovers(plateau, roverPositionOrientation :: rovers)
@@ -126,8 +153,6 @@ object Orientation {
   }
 }
 
-type PlateauDimensions = (Int, Int)
-//type RoverPositionOrientation = (Int, Int, Orientation)
 case class RoverPositionOrientation (position: Position, orientation: Orientation) {
   def mapPosition(f: Position => Position): RoverPositionOrientation = {
     RoverPositionOrientation(f(position), orientation)
@@ -143,12 +168,6 @@ case class RoverPositionOrientation (position: Position, orientation: Orientatio
 }
 
 
-type RoverStateWithOutput = (Rovers, List[String])
-
-type RoverStateAndCommands = (RoverPositionOrientation, Seq[Command])
-
-type RoversInput = (PlateauDimensions, Seq[RoverStateAndCommands])
-
 object Hello {
   def main(args: Array[String]): Unit = {
     val input =
@@ -160,29 +179,18 @@ object Hello {
         |MMRMMRMRRM
       """.stripMargin
 
-//    val roversInput: RoversInput = (new CommandParser()).parse(input)
-//    val initialRovers = Rovers.empty(roversInput._1)
-
       val initialRovers = Rovers.empty((5, 5))
         .add(RoverPositionOrientation(Position(1, 1), North))
         .add(RoverPositionOrientation(Position(1, 2), East))
 
-      initialRovers
-          .execute(Seq(Move, TurnLeft))
-          .execute(Seq(Move, TurnLeft))
-          .execute(Seq(Move, TurnLeft))
-          .execute(Seq(Move, TurnLeft))
+      val finalState = RoversAccumulator(initialRovers)
+          .execute(List(Move, TurnLeft))
+          .execute(List(Move, TurnLeft))
+          .execute(List(Move, TurnLeft))
+          .execute(List(Move, TurnLeft))
+          .state
 
-
-
-//    val roversFinal = roversInput.foldLeft((Rovers.empty, List[String]()))((roverState: RoverStateWithOutput, command: Command) => {
-//      roverState._1.execute(command) match {
-//        case (newState, output) => (newState, output :: roverState._2)
-//      }
-//    })
-
-    println(roversFinal._1)
-    println(roversFinal._2)
+    println(finalState)
   }
 }
 
