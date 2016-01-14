@@ -8,7 +8,6 @@ object Rovers {
   type RoverStateWithOutput = (Rovers, List[String])
   type RoverStateAndCommands = (RoverPositionOrientation, List[Command])
   type RoversInput = (PlateauDimensions, List[RoverPositionOrientation], List[List[Command]])
-//  type RoversInput = (PlateauDimensions, List[(RoverPositionOrientation, List[Command])])
 }
 
 case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientation]) {
@@ -21,7 +20,6 @@ case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientat
     }
 
     val result: Either[RoverError, Rovers] = if (rovers.size != command.size) {
-      println("Non-matching shapes for:\n" + rovers + "\n" + command)
       Left(RoverAndCommandShapesDontMatch)
     } else {
       Right[RoverError, Rovers](Rovers(plateau, runCommands))

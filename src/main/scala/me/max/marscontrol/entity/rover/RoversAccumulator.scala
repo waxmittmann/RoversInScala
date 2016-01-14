@@ -12,8 +12,6 @@ case class RoversAccumulator(state: Either[(RoverError, List[Rovers]), (Rovers, 
     if (commands.head.size == 0) {
       this
     } else {
-//      execute(commands.head).executeAll(commands.tail)
-
       //Do this in one?
       val headCommands = commands.foldRight(List[Command]())((cur, li) => cur.head :: li)
       val tailCommands = commands.foldRight(List[List[Command]]())((
