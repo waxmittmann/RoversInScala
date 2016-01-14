@@ -15,11 +15,10 @@ object Rovers {
 case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientation]) {
   def execute(command: List[Command]): Either[RoverError, Rovers] = {
     def runCommands: List[RoverPositionOrientation] = {
-      val li: List[RoverPositionOrientation] = rovers.zip(command)
-        .foldLeft(List[RoverPositionOrientation]()) {
-          case (list, (rover, command)) => command(rover) :: list
+      rovers.zip(command)
+        .foldRight(List[RoverPositionOrientation]()) {
+          case ((rover, command), list) => command(rover) :: list
         }
-      li
     }
 
     val result: Either[RoverError, Rovers] = if (rovers.size != command.size) {
