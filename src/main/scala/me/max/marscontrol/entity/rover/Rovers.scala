@@ -33,7 +33,7 @@ case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientat
 
   override def toString(): String = {
     val plateauStr = s"Plateau: ${plateau._1} ${plateau._2}"
-    plateauStr + "\n" + rovers.map(rover => s"Position: ${rover.position}, Orientation: ${rover.orientation}")
+    plateauStr + "\n" + rovers.foldRight("")((rover, str) => s"$str\nPosition: ${rover.position}, Orientation: ${rover.orientation}")
   }
 }
 

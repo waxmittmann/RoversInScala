@@ -7,6 +7,7 @@ import me.max.marscontrol.entity.Orientation.Orientation
 import me.max.marscontrol.entity.rover.{RoverPositionOrientation}
 import me.max.marscontrol.entity.rover.Rovers.{PlateauDimensions, RoversInput}
 
+//Needs big refactors
 object CommandParser {
 
   sealed trait ExpectedLine

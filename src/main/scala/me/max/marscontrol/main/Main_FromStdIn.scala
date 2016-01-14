@@ -1,9 +1,6 @@
 package me.max.marscontrol.main
 
-import me.max.marscontrol.entity.Orientation.{East, North}
-import me.max.marscontrol.entity._
-import me.max.marscontrol.entity.rover.Rovers.RoversInput
-import me.max.marscontrol.entity.rover.{RoverError, RoverPositionOrientation, Rovers, RoversAccumulator}
+import me.max.marscontrol.entity.rover.{RoverError, Rovers, RoversAccumulator}
 import me.max.marscontrol.util.CommandParser
 
 object Main_FromStdIn {
@@ -19,7 +16,6 @@ object Main_FromStdIn {
       roversInput <- CommandParser.parse(input).left.map(err => s"Failed with $err").right
       result <- {
         val initialRovers: Rovers = Rovers(roversInput._1, roversInput._2)
-        println(roversInput)
         val finalState = RoversAccumulator(initialRovers).executeAll(roversInput._3)
 
         val result = finalState.state.fold({
@@ -34,8 +30,8 @@ object Main_FromStdIn {
         })
         result
       }.right
-    } yield result)
+    } yield result).merge
 
-    println(result)
+    println("Final result is: " + result)
   }
 }
