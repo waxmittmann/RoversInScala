@@ -37,7 +37,7 @@ class CommandSpec extends mutable.Specification {
       val newPositionOrientation = Move(positionOrientation)
 
       newPositionOrientation.orientation must beEqualTo(North)
-      newPositionOrientation.position must beEqualTo(Position(2, 2))
+      newPositionOrientation.position must beEqualTo(Position(1, 3))
     }
   }
 }

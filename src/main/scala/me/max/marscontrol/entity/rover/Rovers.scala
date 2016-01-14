@@ -33,7 +33,5 @@ case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientat
   def add(roverPositionOrientation: RoverPositionOrientation): Rovers = {
     Rovers(plateau, roverPositionOrientation :: rovers)
   }
-
-  def changePlateau(plateauDimensions: PlateauDimensions): Rovers = ???
 }
 

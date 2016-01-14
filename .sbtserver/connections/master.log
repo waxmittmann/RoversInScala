@@ -20,3 +20,9 @@ Taking next connection to: 59531
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
 Taking next connection to: 59531
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 58615@ITs-MacBook-Pro.local logs at Thu Jan 14 20:19:19 AEDT 2016, goodbye.

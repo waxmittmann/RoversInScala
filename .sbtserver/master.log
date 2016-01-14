@@ -7193,3 +7193,10 @@ All initially invalidated sources: Set()
 Total time: 0 s, completed 14/01/2016 8:16:28 PM
 > server-post-command-cleanup
 > server-handle-next-server-request
+Done executing sbt server engine, result Right(Exit(0))
+Closing listening server socket
+Waiting for socket thread
+Waiting for request processor thread
+Waiting for command engine result
+Returning control to sbt launcher with result Exit(0)
+Closing the 58615@ITs-MacBook-Pro.local logs at Thu Jan 14 20:19:19 AEDT 2016, goodbye.
