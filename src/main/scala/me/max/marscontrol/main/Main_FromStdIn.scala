@@ -29,8 +29,6 @@ object Main_FromStdIn {
           }
         }, {
           case (finalState: Rovers, states: List[Rovers]) => {
-            //val previousStates = states.mkString("\n")
-            //s"Success, final state is ${finalState}.\nStates History:\n ${previousStates}"
             Right(finalState.toString())
           }
         })
@@ -39,28 +37,5 @@ object Main_FromStdIn {
     } yield result)
 
     println(result)
-
-      /*
-    CommandParser.parse(input).fold(
-      err => println("Failed with " + err),
-      roversInput => {
-        val initialRovers: Rovers = Rovers(roversInput._1, roversInput._2)
-        println(roversInput)
-        val finalState = RoversAccumulator(initialRovers).executeAll(roversInput._3)
-
-        val result = finalState.state.fold({
-          case (error: RoverError, states: List[Rovers]) => {
-            val previousStates = states.mkString("\n")
-            s"Commands failed with error ${error}.\nStates leading up to the error:\n ${previousStates}"
-          }
-        }, {
-          case (finalState: Rovers, states: List[Rovers]) => {
-            //val previousStates = states.mkString("\n")
-            //s"Success, final state is ${finalState}.\nStates History:\n ${previousStates}"
-            finalState.toString()
-          }
-        })
-        println(result)
-      })*/
   }
 }
