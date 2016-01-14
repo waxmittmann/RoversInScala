@@ -1,7 +1,6 @@
-package me.max.rover.util
+package me.max.marscontrol.util
 
-import me.max.rover.entity.Rovers
-import me.max.rover.entity.Rovers.RoversInput
+import me.max.marscontrol.entity.rover.Rovers.RoversInput
 
 /** *
 

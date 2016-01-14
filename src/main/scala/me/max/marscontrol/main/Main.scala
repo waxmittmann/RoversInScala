@@ -1,8 +1,8 @@
-package me.max.rover.main
+package me.max.marscontrol.main
 
-import me.max.rover.entity._
+import me.max.marscontrol.entity._
+import me.max.marscontrol.entity.rover.{Rovers, RoversAccumulator, RoverPositionOrientation}
 import Orientation.{East, North}
-import me.max.rover._
 
 object Main {
   def main(args: Array[String]): Unit = {
