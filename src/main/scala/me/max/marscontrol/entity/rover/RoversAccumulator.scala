@@ -8,6 +8,8 @@ object RoversAccumulator {
 }
 
 case class RoversAccumulator(state: Either[(RoverError, List[Rovers]), (Rovers, List[Rovers])]) {
+  def executeAll(commands: List[List[Command]]): RoversAccumulator = ???
+
   def execute(command: List[Command]): RoversAccumulator = {
     RoversAccumulator(for {
       roversAndHistory <- state.right

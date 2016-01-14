@@ -7,9 +7,10 @@ object Rovers {
   type PlateauDimensions = (Int, Int)
   type RoverStateWithOutput = (Rovers, List[String])
   type RoverStateAndCommands = (RoverPositionOrientation, List[Command])
-  type RoversInput = (PlateauDimensions, List[RoverStateAndCommands])
+  type RoversInput = (PlateauDimensions, List[RoverPositionOrientation], List[List[Command]])
 
   def empty(plateauDimensions: PlateauDimensions) = Rovers(plateauDimensions, List.empty)
+  def apply(plateauDimensions: PlateauDimensions, rovers: List[RoverPositionOrientation]) = Rovers(plateauDimensions, rovers)
 }
 
 case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientation]) {
