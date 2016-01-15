@@ -7,8 +7,11 @@ object Rovers {
   type PlateauDimensions = (Int, Int)
   type RoverStateWithOutput = (Rovers, List[String])
   type RoverStateAndCommands = (RoverPositionOrientation, List[Command])
-  type RoversInput = (PlateauDimensions, List[RoverPositionOrientation], List[List[Command]])
+//  type RoversInput = (PlateauDimensions, List[RoverPositionOrientation], List[List[Command]])
 }
+
+case class RoversInput(plateauDimensions: PlateauDimensions, rovers: List[RoverPositionOrientation],
+                       commands: List[List[Command]])
 
 case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientation]) {
   def execute(command: List[Command]): Either[RoverError, Rovers] = {

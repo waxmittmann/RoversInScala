@@ -24,8 +24,8 @@ object Main_FromInputString {
     val result = (for {
       roversInput <- CommandParser.parse(input).left.map(err => s"Failed with $err").right
       result <- {
-        val initialRovers: Rovers = Rovers(roversInput._1, roversInput._2)
-        val finalState = RoversAccumulator(initialRovers).executeAll(roversInput._3)
+        val initialRovers: Rovers = Rovers(roversInput.plateauDimensions, roversInput.rovers)
+        val finalState = RoversAccumulator(initialRovers).executeAll(roversInput.commands)
         transformToResult(finalState)
       }.right
     } yield result).merge
