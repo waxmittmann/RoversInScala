@@ -1,9 +1,9 @@
-package me.max.marscontrol.util
+package me.max.marscontrol.parser
 
 import me.max.marscontrol.entity.Orientation.North
 import me.max.marscontrol.entity.{TurnLeft, TurnRight, Move, Position}
 import me.max.marscontrol.entity.rover.{RoverPositionOrientation, RoversInput}
-import me.max.marscontrol.util.CommandParser.{RoverDefinitionOrEnd, RoverCommands}
+import me.max.marscontrol.parser.CommandParser
 import org.specs2.mutable.Specification
 
 class CommandParserSpec extends Specification {
@@ -57,11 +57,8 @@ class CommandParserSpec extends Specification {
            |
            |""".stripMargin
 
-      println(s"Input is:\n<$input>; length is: ${input.split("\n").length}")
-
       val result: Either[String, RoversInput] = CommandParser.parse(input)
 
-      println(result)
       result.isRight must beTrue
     }.pendingUntilFixed
 
@@ -70,8 +67,6 @@ class CommandParserSpec extends Specification {
         s"""123 456
            |5 8 E
            |RLLMRLL""".stripMargin
-
-      println(s"Input is:\n<$input>")
 
       val result: Either[String, RoversInput] = CommandParser.parse(input)
 

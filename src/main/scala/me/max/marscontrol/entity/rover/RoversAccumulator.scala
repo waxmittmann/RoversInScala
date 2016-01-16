@@ -1,7 +1,7 @@
 package me.max.marscontrol.entity.rover
 
 import me.max.marscontrol.entity.Command
-import me.max.marscontrol.util.RightBiasedEither.RightBiasedEither
+import me.max.marscontrol.util.RightBiasedEither.RightBiasedEither //This import makes the execute for work, DON'T DELETE!
 
 object RoversAccumulator {
   def apply(rovers: Rovers): RoversAccumulator = RoversAccumulator(Right(rovers, List()))
@@ -22,7 +22,7 @@ case class RoversAccumulator(state: Either[(RoverError, List[Rovers]), (Rovers, 
   }
 
   def execute(command: List[Command]): RoversAccumulator = {
-    RoversAccumulator(for {
+    val nextRoverState = for {
       roversAndHistory <- state.right
       rovers = roversAndHistory._1
       roverStateHistory = roversAndHistory._2
@@ -31,6 +31,7 @@ case class RoversAccumulator(state: Either[(RoverError, List[Rovers]), (Rovers, 
         .right
     } yield {
       (newRoverState, newRoverState :: roverStateHistory)
-    })
+    }
+    RoversAccumulator(nextRoverState)
   }
 }

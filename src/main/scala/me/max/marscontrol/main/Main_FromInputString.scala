@@ -1,7 +1,7 @@
 package me.max.marscontrol.main
 
 import me.max.marscontrol.entity.rover.{RoverError, Rovers, RoversAccumulator}
-import me.max.marscontrol.util.CommandParser
+import me.max.marscontrol.parser.CommandParser
 
 object Main_FromInputString {
   def main(args: Array[String]): Unit = {
