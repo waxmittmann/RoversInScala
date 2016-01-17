@@ -5,8 +5,6 @@ import me.max.marscontrol.entity.Command
 
 object Rovers {
   type PlateauDimensions = (Int, Int)
-  type RoverStateWithOutput = (Rovers, List[String])
-  type RoverStateAndCommands = (RoverPositionOrientation, List[Command])
 }
 
 case class RoversInput(rovers: Rovers, commands: List[List[Command]])
