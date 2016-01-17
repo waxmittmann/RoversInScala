@@ -133,7 +133,7 @@ class ConstraintSpec extends mutable.Specification {
       val ifFalseConstraint = AtomicConstraint((rovers, positionOrientation) => {
         Left("IfFalse")
       })
-      val ifConstraint = atomicFailingConstraint.ifc(ifTrueConstraint, ifFalseConstraint)
+      val ifConstraint = atomicFailingConstraint.ifc(ifTrueConstraint, _ => ifFalseConstraint)
       val rovers = Rovers((1, 1), List(RoverPositionOrientation(0, 0, East)))
 
       //When
@@ -155,7 +155,7 @@ class ConstraintSpec extends mutable.Specification {
       val ifFalseConstraint = AtomicConstraint((rovers, positionOrientation) => {
         Left("IfFalse")
       })
-      val ifConstraint = atomicFailingConstraint.ifc(ifTrueConstraint, ifFalseConstraint)
+      val ifConstraint = atomicFailingConstraint.ifc(ifTrueConstraint, _ => ifFalseConstraint)
       val rovers = Rovers((1, 1), List(RoverPositionOrientation(0, 0, East)))
 
       //When

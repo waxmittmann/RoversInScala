@@ -34,11 +34,11 @@ trait Constraint { self =>
     }
   }
 
-  def ifc(ifTrue: Constraint, ifFalse: Constraint): Constraint = {
+  def ifc(ifTrue: Constraint, ifFalse: String => Constraint): Constraint = {
     new Constraint {
       override def testRover(state: Rovers, rover: RoverPositionOrientation): Either[String, Unit] = {
         (self.testRover(state, rover).fold(
-          _ => ifFalse.testRover(state, rover),
+          error => ifFalse(error).testRover(state, rover),
           _ => ifTrue.testRover(state, rover)))
       }
     }
@@ -46,17 +46,19 @@ trait Constraint { self =>
 }
 
 object Constraints {
-  val stayWithinXMinimum = AtomicConstraint((_, rover) => if (rover.position.x >= 0) Right() else Left(s"$rover x-bound is < 0"))
-  val stayWithinXMaximum = AtomicConstraint((state, rover) => if (rover.position.x < state.plateau._1) Right() else Left(s"$rover x-bound is > ${state.plateau._1}"))
-  val stayWithinYMinimum = AtomicConstraint((_, rover) => if (rover.position.y >= 0) Right() else Left(s"$rover y-bound is < 0"))
-  val stayWithinYMaximum = AtomicConstraint((state, rover) => if (rover.position.y < state.plateau._2) Right() else Left(s"$rover y-bound is > ${state.plateau._2}"))
+  val Succeeds = AtomicConstraint((_, _) => Right())
+  def Fails(message: String) = AtomicConstraint((_, _) => Left(message))
 
-  val stayWithinPlateau = stayWithinXMinimum and stayWithinXMaximum and stayWithinYMinimum and stayWithinYMaximum
+  val StayWithinXMinimum = AtomicConstraint((_, rover) => if (rover.position.x >= 0) Right() else Left(s"$rover x-bound is < 0"))
+  val StayWithinXMaximum = AtomicConstraint((state, rover) => if (rover.position.x < state.plateau._1) Right() else Left(s"$rover x-bound is > ${state.plateau._1}"))
+  val StayWithinYMinimum = AtomicConstraint((_, rover) => if (rover.position.y >= 0) Right() else Left(s"$rover y-bound is < 0"))
+  val StayWithinYMaximum = AtomicConstraint((state, rover) => if (rover.position.y < state.plateau._2) Right() else Left(s"$rover y-bound is > ${state.plateau._2}"))
 
-  val stayWithinXOrWithinY = (stayWithinXMinimum and stayWithinXMaximum) or (stayWithinYMinimum and stayWithinYMaximum)
+  val StayWithinPlateau = StayWithinXMinimum and StayWithinXMaximum and StayWithinYMinimum and StayWithinYMaximum
 
-
-  val preventCollision = AtomicConstraint((state, rover) => {
+  val StayWithinXOrWithinY = (StayWithinXMinimum and StayWithinXMaximum) or (StayWithinYMinimum and StayWithinYMaximum)
+  
+  val PreventCollision = AtomicConstraint((state, rover) => {
     val roversWithSamePosition = state.rovers.foldLeft(0)((count, cur) => if (cur.position == rover.position) count + 1 else count)
     if (roversWithSamePosition > 1) {
       Left(s"${roversWithSamePosition} rovers have same position ${rover.position}")
@@ -64,4 +66,7 @@ object Constraints {
       Right()
     }
   })
+  
+  //Silly, but it demonstrates the concept; check for collision only if rover is within bounds
+  val CheckCollisionIfWithinPlateau = StayWithinPlateau.ifc(PreventCollision, Fails(_))
 }

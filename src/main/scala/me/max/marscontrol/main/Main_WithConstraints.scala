@@ -7,7 +7,7 @@ import me.max.marscontrol.entity.rover._
 object Main_WithConstraints {
   def main(args: Array[String]): Unit = {
     val initialRovers = Rovers((5, 5), List())
-      .addConstraint(Constraints.stayWithinPlateau)
+      .addConstraint(Constraints.StayWithinPlateau)
       .addRover(RoverPositionOrientation(Position(0, 0), South))
       .addRover(RoverPositionOrientation(Position(0, 1), South))
 
