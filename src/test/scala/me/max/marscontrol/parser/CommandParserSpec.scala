@@ -1,7 +1,7 @@
 package me.max.marscontrol.parser
 
-import me.max.marscontrol.entity.Orientation.North
-import me.max.marscontrol.entity.{TurnLeft, TurnRight, Move, Position}
+import me.max.marscontrol.entity.Orientation.{West, East, North}
+import me.max.marscontrol.entity._
 import me.max.marscontrol.entity.rover.{RoverPositionOrientation, RoversInput}
 import me.max.marscontrol.parser.CommandParser
 import org.specs2.mutable.Specification
@@ -16,9 +16,9 @@ class CommandParserSpec extends Specification {
 
       result.isRight must beTrue
       val output = result.right.get
-      output.plateauDimensions._1 must beEqualTo(123)
-      output.plateauDimensions._2 must beEqualTo(456)
-      output.rovers.isEmpty must beTrue
+      output.rovers.plateau._1 must beEqualTo(123)
+      output.rovers.plateau._2 must beEqualTo(456)
+      output.rovers.rovers.isEmpty must beTrue
       output.commands.isEmpty must beTrue
     }
 
@@ -71,6 +71,29 @@ class CommandParserSpec extends Specification {
       val result: Either[String, RoversInput] = CommandParser.parse(input)
 
       result.isRight must beTrue
+    }
+
+    "correctly parse two rover / command pairs" in {
+      //Given
+      val input =
+        s"""123 456
+           |5 8 E
+           |RLLMRLL
+           |3 1 W
+           |MM""".stripMargin
+
+      //When
+      val result: Either[String, RoversInput] = CommandParser.parse(input)
+
+      //Then
+      result.isRight must beTrue
+      val roversInput = result.right.get
+
+      roversInput.rovers.rovers(0) must beEqualTo(RoverPositionOrientation(5, 8, East))
+      roversInput.rovers.rovers(1) must beEqualTo(RoverPositionOrientation(3, 1, West))
+
+      roversInput.commands(0) must beEqualTo(List(TurnRight, TurnLeft, TurnLeft, Move, TurnRight, TurnLeft, TurnLeft))
+      roversInput.commands(1) must beEqualTo(List(Move, Move, Noop, Noop, Noop, Noop, Noop))
     }
   }
 

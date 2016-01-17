@@ -8,7 +8,7 @@ import org.specs2._
 import org.specs2.specification.{Fixture, Before, Scope}
 import org.specs2.mock.Mockito
 
-class RoversIntegrationTest extends Specification {
+class RoversIntegrationSpec extends Specification {
   trait TestData extends Scope {
     val plateau = (5, 5)
     val roverA = RoverPositionOrientation(Position(1, 0), North)

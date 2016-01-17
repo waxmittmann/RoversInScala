@@ -7,8 +7,8 @@ import Orientation.{East, North}
 object Main_Programatically {
   def main(args: Array[String]): Unit = {
     val initialRovers = Rovers((5, 5), List())
-      .add(RoverPositionOrientation(Position(1, 1), North))
-      .add(RoverPositionOrientation(Position(1, 2), East))
+      .addRover(RoverPositionOrientation(Position(1, 1), North))
+      .addRover(RoverPositionOrientation(Position(1, 2), East))
 
     val finalState = RoversAccumulator(initialRovers)
       .execute(List(Move, TurnLeft))

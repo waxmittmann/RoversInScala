@@ -2,13 +2,14 @@ package me.max.marscontrol.parser
 
 import me.max.marscontrol.entity.Orientation.Orientation
 import me.max.marscontrol.entity.rover.Rovers.PlateauDimensions
-import me.max.marscontrol.entity.rover.{RoverPositionOrientation, RoversInput}
+import me.max.marscontrol.entity.rover.{Rovers, RoverPositionOrientation, RoversInput}
 import me.max.marscontrol.entity.{Command, Noop, Orientation, Position}
 
 import scala.annotation.tailrec
 
 object CommandParser {
-  type ParsedInput = ((Int, Int), List[(RoverPositionOrientation, List[Command])])
+//  type ParsedInput = ((Int, Int), List[(RoverPositionOrientation, List[Command])])
+//  type ParsedInput = (Rovers, List[List[Command]])
 
   def parse(input: String): Either[String, RoversInput] = {
     //Todo: Replace with max
@@ -23,16 +24,15 @@ object CommandParser {
     }
 
     val parseResult: Either[String, ParserState] = doParse(input)
-    val parsedInput: Either[String, ParsedInput] = transformResult(parseResult)
-
-    parsedInput.right
+    val parsedInput: Either[String, RoversInput] = transformResult(parseResult).right
       .map((in: ((Int, Int), List[(RoverPositionOrientation, List[Command])])) => {
         val rovers = in._2
         val longestList = longestCommandListLength(rovers)
         val (positionsOrientations, commands) = rovers.unzip
         val paddedCommands: List[List[Command]] = commands.map(li => li.padTo(longestList, Noop))
-        RoversInput(in._1, positionsOrientations, paddedCommands)
+        RoversInput(Rovers(in._1, positionsOrientations, List()), paddedCommands)
       })
+    parsedInput
   }
 
   private def doParse(input: String): Either[String, ParserState] = {
@@ -51,9 +51,13 @@ object CommandParser {
     go(PlateauDefinition(input.split("\n").toList))
   }
 
-  private def transformResult(result: Either[String, ParserState]): Either[String, ParsedInput] = {
+  private def transformResult(result: Either[String, ParserState]):
+                    Either[String, ((Int, Int), List[(RoverPositionOrientation, List[Command])])] = {
     result match {
-      case Right(RoverDefinitionOrEnd(_, dimensions, rovers)) => Right((dimensions, rovers))
+      case Right(RoverDefinitionOrEnd(_, dimensions, rovers)) => {
+//        Right((dimensions, rovers))
+        Right((dimensions, rovers.reverse))
+      }
       case Right(state) => Left(s"Parser error, incorrect state: $state")
       case Left(error: String) => Left(error)
     }
