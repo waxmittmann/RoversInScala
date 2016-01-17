@@ -2,12 +2,12 @@ package me.max.marscontrol.main
 
 import me.max.marscontrol.entity.Orientation.{South, East, North}
 import me.max.marscontrol.entity._
-import me.max.marscontrol.entity.rover.{StayWithinPlateau, RoverPositionOrientation, Rovers, RoversAccumulator}
+import me.max.marscontrol.entity.rover._
 
 object Main_WithConstraints {
   def main(args: Array[String]): Unit = {
     val initialRovers = Rovers((5, 5), List())
-      .addConstraint(StayWithinPlateau)
+      .addConstraint(Constraints.stayWithinPlateau)
       .addRover(RoverPositionOrientation(Position(0, 0), South))
       .addRover(RoverPositionOrientation(Position(0, 1), South))
 
