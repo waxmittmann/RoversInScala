@@ -12,7 +12,7 @@ object Main_WithConstraints {
       .addRover(RoverPositionOrientation(Position(0, 1), South))
 
     {
-      val finalState = RoversAccumulator(initialRovers)
+      val finalState: RoversAccumulator = RoversAccumulator(initialRovers)
         .execute(List(Move, Noop))
 
       println("Final state:\n" + finalState.toString)

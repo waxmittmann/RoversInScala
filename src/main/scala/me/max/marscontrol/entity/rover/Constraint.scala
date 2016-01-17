@@ -12,7 +12,7 @@ case class AtomicConstraint(testF: (Rovers, RoverPositionOrientation) => Either[
  */
 trait Constraint {
   def test(rovers: Rovers): Either[String, Unit] = {
-    rovers.rovers.map((rover) => this.testRover(rovers, rover)).find(cur => cur.isLeft).getOrElse(Right())
+    rovers.rovers.map((rover) => testRover(rovers, rover)).find(cur => cur.isLeft).getOrElse(Right())
   }
 
   def testRover(state: Rovers, rover: RoverPositionOrientation): Either[String, Unit]

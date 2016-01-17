@@ -41,7 +41,7 @@ case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientat
   }
 
   def addRover(roverPositionOrientation: RoverPositionOrientation): Rovers = {
-    Rovers(plateau, roverPositionOrientation :: rovers, constraints)
+    Rovers(plateau, rovers :+ roverPositionOrientation, constraints)
   }
 
   def addConstraint(constraint: Constraint): Rovers = {
