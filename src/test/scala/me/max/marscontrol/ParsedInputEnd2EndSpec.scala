@@ -1,18 +1,17 @@
 package me.max.marscontrol
 
 import me.max.marscontrol.entity.Orientation.{West, East, North}
-import me.max.marscontrol.entity.Position
-import me.max.marscontrol.entity.rover.{RoverError, RoversAccumulator, Rovers, RoverPositionOrientation}
+import me.max.marscontrol.entity.rover.{RoversAccumulator, Rovers, RoverPositionOrientation}
 import me.max.marscontrol.parser.CommandParser
+import org.specs2.matcher.{MatchResult, BeEqualTo}
 import org.specs2.mutable.Specification
-import org.specs2.specification.Scope
-
-/*
-    1 2 N, 3 3 E
-    1 2 W,
- */
 
 class ParsedInputEnd2EndSpec extends Specification {
+  def checkState(state: Rovers, expected: List[RoverPositionOrientation]): MatchResult[RoverPositionOrientation] = {
+    val matcherResults = state.rovers.zip(expected).map(cur => (cur._1 must beEqualTo(cur._2)))
+    matcherResults.find(!_.isSuccess).getOrElse(matcherResults(0))
+  }
+
   "When running rovers using RoversAccumulator and input parsed from a string" should {
     "correctly handle a simple example" in {
       //Given
@@ -29,8 +28,6 @@ class ParsedInputEnd2EndSpec extends Specification {
       } yield RoversAccumulator(roversInput))
 
       //Then
-      println(parseResult)
-
       parseResult.isRight must beTrue
       parseResult.right.get.state.isRight must beTrue
 
@@ -41,17 +38,11 @@ class ParsedInputEnd2EndSpec extends Specification {
       val firstState = history(0)
       val secondState = history(1)
       val finalState = states._1
-      println(s"First state:\n$firstState\nSecond state:\n$secondState")
 
-      firstState.rovers(0) must beEqualTo(RoverPositionOrientation(1, 2, West))
-      firstState.rovers(1) must beEqualTo(RoverPositionOrientation(4, 3, East))
-
-      secondState.rovers(0) must beEqualTo(RoverPositionOrientation(0, 2, West))
-      secondState.rovers(1) must beEqualTo(RoverPositionOrientation(5, 3, East))
-
+      checkState(firstState, List(RoverPositionOrientation(1, 2, West), RoverPositionOrientation(4, 3, East)))
+      checkState(secondState, List(RoverPositionOrientation(0, 2, West), RoverPositionOrientation(5, 3, East)))
       //Currently same as secondState
-      finalState.rovers(0) must beEqualTo(RoverPositionOrientation(0, 2, West))
-      finalState.rovers(1) must beEqualTo(RoverPositionOrientation(5, 3, East))
+      checkState(finalState, List(RoverPositionOrientation(0, 2, West), RoverPositionOrientation(5, 3, East)))
     }
 
     "initial input produce the correct result" in {
@@ -69,16 +60,13 @@ class ParsedInputEnd2EndSpec extends Specification {
       } yield RoversAccumulator(roversInput))
 
       //Then
-      println(parseResult)
-
       parseResult.isRight must beTrue
       parseResult.right.get.state.isRight must beTrue
 
       val states: (Rovers, List[Rovers]) = parseResult.right.get.state.right.get
 
       val finalState = states._1
-      finalState.rovers(0) must beEqualTo(RoverPositionOrientation(1, 3, North))
-      finalState.rovers(1) must beEqualTo(RoverPositionOrientation(5, 1, East))
+      checkState(finalState, List(RoverPositionOrientation(1, 3, North), RoverPositionOrientation(5, 1, East)))
     }
   }
 }

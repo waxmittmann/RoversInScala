@@ -1,16 +1,11 @@
 package me.max.marscontrol.parser
 
-import me.max.marscontrol.entity.Orientation.Orientation
-import me.max.marscontrol.entity.rover.Rovers.PlateauDimensions
 import me.max.marscontrol.entity.rover.{Rovers, RoverPositionOrientation, RoversInput}
-import me.max.marscontrol.entity.{Command, Noop, Orientation, Position}
+import me.max.marscontrol.entity.{Command, Noop}
 
 import scala.annotation.tailrec
 
 object CommandParser {
-//  type ParsedInput = ((Int, Int), List[(RoverPositionOrientation, List[Command])])
-//  type ParsedInput = (Rovers, List[List[Command]])
-
   def parse(input: String): Either[String, RoversInput] = {
     //Todo: Replace with max
     def longestCommandListLength(rovers: List[(RoverPositionOrientation, List[Command])]): Int = {
@@ -54,10 +49,7 @@ object CommandParser {
   private def transformResult(result: Either[String, ParserState]):
                     Either[String, ((Int, Int), List[(RoverPositionOrientation, List[Command])])] = {
     result match {
-      case Right(RoverDefinitionOrEnd(_, dimensions, rovers)) => {
-//        Right((dimensions, rovers))
-        Right((dimensions, rovers.reverse))
-      }
+      case Right(RoverDefinitionOrEnd(_, dimensions, rovers)) => Right((dimensions, rovers.reverse))
       case Right(state) => Left(s"Parser error, incorrect state: $state")
       case Left(error: String) => Left(error)
     }

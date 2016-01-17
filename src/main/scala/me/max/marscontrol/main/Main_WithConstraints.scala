@@ -14,18 +14,8 @@ object Main_WithConstraints {
     {
       val finalState = RoversAccumulator(initialRovers)
         .execute(List(Move, Noop))
-//        .execute(List(Move, Move))
 
       println("Final state:\n" + finalState.toString)
     }
-
-//    {
-//      val finalState = RoversAccumulator(initialRovers)
-//        .execute(List(Noop, Move))
-//        .state
-//
-//      println(finalState)
-//    }
-
   }
 }

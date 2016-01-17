@@ -15,22 +15,15 @@ case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientat
   def execute(command: List[Command]): Either[RoverError, Rovers] = {
     def runCommands: List[RoverPositionOrientation] = {
       rovers.zip(command)
-//        .foldRight(List[RoverPositionOrientation]()) {
-//          case ((rover, command), list) => command(rover) :: list
-//        }
-//        .foldLeft(List[RoverPositionOrientation]()) {
         .foldRight(List[RoverPositionOrientation]()) {
-//          case (list, (rover, command)) => command(rover) :: list
           case ((rover, command), list) => command(rover) :: list
         }
     }
 
     def validate(rovers: Rovers): Either[RoverError, Rovers] = {
-//      println("Constraints here are " + constraints)
-      val errors = constraints.foldLeft(List[String]())((li, constraint) => {
-//        println("Testing " + constraint)
-        constraint.test(rovers).fold(error => error :: li, _ => li)
-      })
+      val errors = constraints.foldLeft(List[String]())((li, constraint)
+          => constraint.test(rovers).fold(error => error :: li, _ => li))
+
       if (errors.length > 0) {
         Left(ValidationError(errors))
       } else {
@@ -52,7 +45,6 @@ case class Rovers(plateau: PlateauDimensions, rovers: List[RoverPositionOrientat
   }
 
   def addConstraint(constraint: Constraint): Rovers = {
-//    println("Adding constraint " + constraint)
     Rovers(plateau, rovers, constraint :: constraints)
   }
 

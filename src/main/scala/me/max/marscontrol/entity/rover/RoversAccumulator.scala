@@ -9,22 +9,13 @@ object RoversAccumulator {
 }
 
 case class RoversAccumulator(state: Either[(RoverError, List[Rovers]), (Rovers, List[Rovers])]) {
-//  def executeAll(commands: List[List[Command]]): RoversAccumulator = executeAllHelper(commands.reverse)
-
-//  protected def executeAllHelper(commands: List[List[Command]]): RoversAccumulator = {
   def executeAll(commands: List[List[Command]]): RoversAccumulator = { //executeAllHelper(commands.reverse)
     if (commands.head.size == 0) {
       this
     } else {
-      //      val init = (List[Command](), List[List[Command]]())
       val init = (List[Command](), List[List[Command]]())
-      val headAndTailCommands =  commands.foldRight(init)(
-        //      val headAndTailCommands =  commands.foldLeft(init)(
-        (cur, li) => ((cur.head :: li._1), (cur.tail :: li._2)))
-      //        (li: (List[Command], List[List[Command]]), cur: List[Command]) => ((cur.head :: li._1), (cur.tail :: li._2)))
+      val headAndTailCommands =  commands.foldRight(init)((cur, li) => ((cur.head :: li._1), (cur.tail :: li._2)))
       val (headCommands, tailCommands) = (headAndTailCommands._1, headAndTailCommands._2)
-//      execute(headCommands).executeAllHelper(tailCommands)
-      println("At head " + headCommands)
       execute(headCommands).executeAll(tailCommands)
     }
   }
@@ -38,8 +29,7 @@ case class RoversAccumulator(state: Either[(RoverError, List[Rovers]), (Rovers, 
         .left.map(error => (error, roverStateHistory))
         .right
     } yield {
-      (newRoverState, roverStateHistory :+ newRoverState)
-//      (newRoverState, newRoverState :: roverStateHistory)
+      (newRoverState, roverStateHistory :+ newRoverState) //Should build and reverse instead
     }
     RoversAccumulator(nextRoverState)
   }
