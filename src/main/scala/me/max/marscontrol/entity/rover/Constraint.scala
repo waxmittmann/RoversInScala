@@ -10,7 +10,7 @@ case class AtomicConstraint(testF: (Rovers, RoverPositionOrientation) => Either[
   (though given the current implementation of rovers as a list, that would not product an asymptotic improvement in
     constraint evaluation, factoring out the rover-to-rover part would make for easier-to-write between-rovers conditions)
  */
-trait Constraint {
+trait Constraint { self =>
   def test(rovers: Rovers): Either[String, Unit] = {
     rovers.rovers.map((rover) => testRover(rovers, rover)).find(cur => cur.isLeft).getOrElse(Right())
   }
@@ -18,19 +18,17 @@ trait Constraint {
   def testRover(state: Rovers, rover: RoverPositionOrientation): Either[String, Unit]
 
   def and(constraint: Constraint): Constraint = {
-    val that = this
     new Constraint {
       override def testRover(state: Rovers, rover: RoverPositionOrientation): Either[String, Unit] = {
-        that.testRover(state, rover).right.flatMap(_ => constraint.testRover(state, rover))
+        self.testRover(state, rover).right.flatMap(_ => constraint.testRover(state, rover))
       }
     }
   }
 
   def or(constraint: Constraint): Constraint = {
-    val that = this //Nicer way?
     new Constraint {
       override def testRover(state: Rovers, rover: RoverPositionOrientation): Either[String, Unit] = {
-        that.testRover(state, rover).left.flatMap(lhsError =>
+        self.testRover(state, rover).left.flatMap(lhsError =>
           constraint.testRover(state, rover).left.map(rhsError => s"Not $lhsError  and not $rhsError"))
       }
     }
