@@ -33,6 +33,16 @@ trait Constraint { self =>
       }
     }
   }
+
+  def ifc(ifTrue: Constraint, ifFalse: Constraint): Constraint = {
+    new Constraint {
+      override def testRover(state: Rovers, rover: RoverPositionOrientation): Either[String, Unit] = {
+        (self.testRover(state, rover).fold(
+          _ => ifFalse.testRover(state, rover),
+          _ => ifTrue.testRover(state, rover)))
+      }
+    }
+  }
 }
 
 object Constraints {
@@ -44,4 +54,14 @@ object Constraints {
   val stayWithinPlateau = stayWithinXMinimum and stayWithinXMaximum and stayWithinYMinimum and stayWithinYMaximum
 
   val stayWithinXOrWithinY = (stayWithinXMinimum and stayWithinXMaximum) or (stayWithinYMinimum and stayWithinYMaximum)
+
+
+  val preventCollision = AtomicConstraint((state, rover) => {
+    val roversWithSamePosition = state.rovers.foldLeft(0)((count, cur) => if (cur.position == rover.position) count + 1 else count)
+    if (roversWithSamePosition > 1) {
+      Left(s"${roversWithSamePosition} rovers have same position ${rover.position}")
+    } else {
+      Right()
+    }
+  })
 }

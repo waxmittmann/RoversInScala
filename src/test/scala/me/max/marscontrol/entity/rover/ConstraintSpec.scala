@@ -121,6 +121,52 @@ class ConstraintSpec extends mutable.Specification {
     }
   }
 
+  "If Constraint" should {
+    "call ifTrue constraint if condition constraint evaluates to true" in {
+      //Given
+      val atomicFailingConstraint = AtomicConstraint((rovers, positionOrientation) => {
+        Right()
+      })
+      val ifTrueConstraint = AtomicConstraint((rovers, positionOrientation) => {
+        Left("IfTrue")
+      })
+      val ifFalseConstraint = AtomicConstraint((rovers, positionOrientation) => {
+        Left("IfFalse")
+      })
+      val ifConstraint = atomicFailingConstraint.ifc(ifTrueConstraint, ifFalseConstraint)
+      val rovers = Rovers((1, 1), List(RoverPositionOrientation(0, 0, East)))
+
+      //When
+      val result = ifConstraint.testRover(rovers, RoverPositionOrientation(0, 0, East))
+
+      //Then
+      result.isLeft must beTrue
+      result.left.get must beEqualTo("IfTrue")
+    }
+
+    "call ifFalse constraint if condition constraint evaluates to false" in {
+      //Given
+      val atomicFailingConstraint = AtomicConstraint((rovers, positionOrientation) => {
+        Left("Failed")
+      })
+      val ifTrueConstraint = AtomicConstraint((rovers, positionOrientation) => {
+        Left("IfTrue")
+      })
+      val ifFalseConstraint = AtomicConstraint((rovers, positionOrientation) => {
+        Left("IfFalse")
+      })
+      val ifConstraint = atomicFailingConstraint.ifc(ifTrueConstraint, ifFalseConstraint)
+      val rovers = Rovers((1, 1), List(RoverPositionOrientation(0, 0, East)))
+
+      //When
+      val result = ifConstraint.testRover(rovers, RoverPositionOrientation(0, 0, East))
+
+      //Then
+      result.isLeft must beTrue
+      result.left.get must beEqualTo("IfFalse")
+    }
+  }
+
   "And Constraint" should {
     "fail when both subconstraints fail" in {
       //Given
